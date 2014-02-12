@@ -42,30 +42,31 @@ public class TwitterClient extends OAuthBaseClient {
         client.get(apiUrl, params, handler);
     }*/
     
-    public void getHomeTimeline(AsyncHttpResponseHandler handler,int count, long maxId)
+    public void getHomeTimeline(AsyncHttpResponseHandler handler, int count, long maxId)
     {
     	RequestParams params =null;
        String url = getApiUrl("statuses/home_timeline.json"); 
-   if(callsToGetHomeTimeline==0)
-   {
-    	   params = new RequestParams("count",count);
-   } 
-   else
-   {
-	   params = new RequestParams("count",count,"max_id",maxId);   
-   }
-    		   client.get(url, params,handler);
-    		   callsToGetHomeTimeline++;
+       /*if(callsToGetHomeTimeline==0)
+       {
+        	   params = new RequestParams("count",count);
+       } 
+       else
+       {
+    	   params = new RequestParams("count",count,"max_id",maxId);   
+       }
+        		   client.get(url, params,handler);
+        		   callsToGetHomeTimeline++;
+        }*/
+       client.get(url, params,handler);
     }
-    /* 1. Define the endpoint URL with getApiUrl and pass a relative path to the endpoint
-     * 	  i.e getApiUrl("statuses/home_timeline.json");
-     * 2. Define the parameters to pass to the request (query or body)
-     *    i.e RequestParams params = new RequestParams("foo", "bar");
-     * 3. Define the request method and make a call to the client
-     *    i.e client.get(apiUrl, params, handler);
-     *    i.e client.post(apiUrl, params, handler);
-     */
-    
+   
+       
+   
+    public void getMentions(AsyncHttpResponseHandler handler)
+    {
+    	String url = getApiUrl("statuses/mentions_timeline.json"); 
+    	 client.get(url, null,handler);
+    }
     public void postTweet(AsyncHttpResponseHandler handler,String status)
     {
        String url = getApiUrl("statuses/update.json"); 
