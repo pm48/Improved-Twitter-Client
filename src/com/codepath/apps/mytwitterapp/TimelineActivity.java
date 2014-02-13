@@ -87,11 +87,12 @@ public class TimelineActivity extends FragmentActivity implements TabListener {
 	public void onProfileView(MenuItem mi)
 	{
 		Intent i = new Intent(this,ProfileActivity.class);
+		startActivity(i);
 	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.compose, menu);
+		getMenuInflater().inflate(R.menu.time_line, menu);
 		return true;
 	}
 	

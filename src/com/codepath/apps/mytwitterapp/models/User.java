@@ -16,8 +16,9 @@ public class User implements Serializable {
         private String screenName;
         private String profileImageUrl;
         private int numTweets;
-        private int followersCount;
-        private int friendsCount;
+        private int followers_count;
+        private int friends_count;
+        private String description;
         
     public String getName() {
         return name;
@@ -40,11 +41,15 @@ public class User implements Serializable {
     }
 
     public int getFollowersCount() {
-        return followersCount;
+        return followers_count;
     }
 
     public int getFriendsCount() {
-        return friendsCount;
+        return friends_count;
+    }
+    
+    public String getTagLine(){
+    	return description;
     }
 
     public static User fromJson(JSONObject json) {
